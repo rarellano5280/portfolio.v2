@@ -2,6 +2,8 @@ import React from "react";
 
 import Image from "../assets/header.png";
 
+import { Link } from "react-scroll";
+
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import { TypeAnimation } from "react-type-animation";
@@ -62,7 +64,7 @@ const Banner = () => {
               viewport={{ once: false, amount: 0.7 }}
               className="mb-8 max-w-lg mx-auto lg:mx-0"
             >
-              lorem ipsum blah blah blah blah
+              Thanks for stopping by!
             </motion.p>
             <motion.div
               variants={fadeIn("up", 0.6)}
@@ -71,8 +73,13 @@ const Banner = () => {
               viewport={{ once: false, amount: 0.7 }}
               className="flex max-w-max gap-x-6 items-center mb-12 mx-auto lg:mx-0"
             >
-              <button className="btn btn-lg">Contact me</button>
-              <a href="https://www.linkedin.com/in/robert-arellano-a09589265/" className="text-gradient btn-link">
+              <Link to="contact" activeClass="active" smooth={true} spy={true}>
+                <button className="btn btn-lg"> Contact me</button>
+              </Link>
+              <a
+                href="https://github.com/rarellano5280/portfolio.v2"
+                className="text-gradient btn-link"
+              >
                 My Portfolio
               </a>
             </motion.div>
@@ -91,12 +98,13 @@ const Banner = () => {
               </a>
             </motion.div>
           </div>
-          <motion.div 
-          variants={fadeIn("down", 0.5)}
-          initial="hidden"
-          whileInView={"show"}
-          viewport={{ once: false, amount: 0.7 }}
-          className="hidden lg:flex flex-1 max-w-[320px] lg:max-w-[482px]">
+          <motion.div
+            variants={fadeIn("down", 0.5)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            className="hidden lg:flex flex-1 max-w-[320px] lg:max-w-[482px]"
+          >
             <img src={Image} alt="banner" />
           </motion.div>
         </div>
