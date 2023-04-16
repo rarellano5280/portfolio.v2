@@ -27,32 +27,39 @@ const Contact = () => {
             </div>
           </motion.div>
           {/* form */}
-          <motion.form 
-            name="contact" method="POST" netlify onSubmit="submit"
+          <motion.form
+            name="contact v1"
+            method="post"
+            data-netlify="true"
+            onSubmit="submit"
             variants={fadeIn("left", 0.5)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.3 }}
             className="flex-1 border rounded-2xl flex flex-col gay-y-6 pb-24 p-6 items-start"
           >
+            <input type="hidden" name="form-name" value="contact v1" />
+
             <input
-              name="name"
               className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
               type="text"
               placeholder="Your name"
+              name="name"
             />
             <input
-              name="email"
               className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
-              type="text"
+              type="email"
               placeholder="Your email"
+              name="email"
             />
             <textarea
-              name="message"
               className="bg-transparent border-b py-12 outline-none w-full placeholder:text-white focus:border-accent transition-all resize-none mb-12"
               placeholder="Your message"
+              name="message"
             ></textarea>
-            <button type="submit" className="btn btn-lg">Send message</button>
+            <button type="submit" className="btn btn-lg">
+              Send message
+            </button>
           </motion.form>
         </div>
       </div>
