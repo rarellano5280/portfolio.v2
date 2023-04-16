@@ -27,15 +27,8 @@ const Contact = () => {
             </div>
           </motion.div>
           {/* form */}
-          <form
-            name="contact v1"
-            method="post"
-            data-netlify="true"
+          <form name="contact" method="POST" data-netlify="true"
             onSubmit="submit"
-            variants={fadeIn("left", 0.5)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{ once: false, amount: 0.3 }}
             className="flex-1 border rounded-2xl flex flex-col gay-y-6 pb-24 p-6 items-start"
           >
             <input type="hidden" name="form-name" value="contact v1" />
