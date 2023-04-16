@@ -28,7 +28,7 @@ const Contact = () => {
           </motion.div>
           {/* form */}
           <motion.form 
-            name="contact" method="POST" data-netlify="true" onSubmit="submit"
+            name="contact" method="POST" netlify onSubmit="submit"
             variants={fadeIn("left", 0.5)}
             initial="hidden"
             whileInView={"show"}
@@ -52,7 +52,7 @@ const Contact = () => {
               className="bg-transparent border-b py-12 outline-none w-full placeholder:text-white focus:border-accent transition-all resize-none mb-12"
               placeholder="Your message"
             ></textarea>
-            <button className="btn btn-lg">Send message</button>
+            <button type="submit" className="btn btn-lg">Send message</button>
           </motion.form>
         </div>
       </div>
