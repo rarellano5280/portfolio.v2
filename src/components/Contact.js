@@ -27,7 +27,7 @@ const Contact = () => {
             </div>
           </motion.div>
           {/* form */}
-          <motion.form
+          <form
             name="contact v1"
             method="post"
             data-netlify="true"
@@ -60,7 +60,7 @@ const Contact = () => {
             <button type="submit" className="btn btn-lg">
               Send message
             </button>
-          </motion.form>
+          </form>
         </div>
       </div>
     </section>
