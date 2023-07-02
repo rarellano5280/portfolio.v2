@@ -32,7 +32,9 @@ const Work = () => {
 
             {/* Project 1 */}
             <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
-              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
+            <a href="https://obscure-sands-38875.herokuapp.com" className="btn-link">
+              <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300">
+              </div>
               <img
                 className="group-hover:scale-125 transition-all duration-500"
                 src={pImg}
@@ -45,8 +47,9 @@ const Work = () => {
                 <span className="text-3xl text-white">Paw Palz</span>
               </div>
               <div className="absolute -bottom-full left-12 group-hover:bottom-5 transition-all duration-700 z-50">
-                <span className=" text-sm text-white">blah blah</span>
+                <span className=" text-sm text-white">A social media website that allows user to create accounts for thier dogs.</span>
               </div>
+              </a>
             </div>
           </motion.div>
 
@@ -59,6 +62,7 @@ const Work = () => {
             className="flex-1 flex flex-col gap-14"
           >
             <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
+            <a href="https://github.com/rarellano5280/Fitness-Culture" className="btn-link">
               <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
               <img
                 className="group-hover:scale-125 transition-all duration-500"
@@ -72,12 +76,14 @@ const Work = () => {
                 <span className="text-3xl text-white">Fitness Culture</span>
               </div>
               <div className="absolute -bottom-full left-12 group-hover:bottom-5 transition-all duration-700 z-50">
-                <span className=" text-sm text-white">blah blah</span>
+                <span className=" text-sm text-white">A fitness app that allows users to track workouts and nutriton.</span>
               </div>
+              </a>
             </div>
 
             {/* Project 3 */}
             <div className="group relative overflow-hidden border-2 border-white/50 rounded-xl">
+            <a href="https://rarellano5280.github.io/National-Park-Finder/" className="btn-link">
               <div className="group-hover:bg-black/70 w-full h-full absolute z-40 transition-all duration-300"></div>
               <img
                 className="group-hover:scale-125 transition-all duration-500"
@@ -91,8 +97,9 @@ const Work = () => {
                 <span className="text-3xl text-white">Xplor</span>
               </div>
               <div className="absolute -bottom-full left-12 group-hover:bottom-5 transition-all duration-700 z-50">
-                <span className=" text-sm text-white">blah blah</span>
+                <span className=" text-sm text-white">A national park finder that allow user to search for popular Natioal State Parks.</span>
               </div>
+              </a>
             </div>
           </motion.div>
         </div>
