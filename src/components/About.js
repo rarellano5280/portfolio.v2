@@ -81,7 +81,7 @@ const About = () => {
               <Link to="contact" activeClass="active" smooth={true} spy={true}>
                 <button className="btn btn-lg"> Contact me</button>
               </Link>
-              <a href="" className="text-gradient btn-link">
+              <a href="https://my.visualcv.com/robert-arellano/" className="text-gradient btn-link">
                 My Resume
               </a>
             </div>
