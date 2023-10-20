@@ -5,6 +5,22 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 
 const Contact = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    fetch("/", {
+      method: "POST",
+      body: new URLSearchParams(new FormData(form)).toString(),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    })
+      .then(() => {
+        // Handle the success or do a redirect here
+        // You can use window.location.href = '/success-page' for example
+      })
+      .catch((error) => {
+        console.error("Form submission error:", error);
+      });
+  };
   return (
     <section className="py-16 lg:section" id="contact">
       <div className="container mx-auto">
@@ -27,8 +43,11 @@ const Contact = () => {
             </div>
           </motion.div>
           {/* form */}
-          <form name="contact" method="POST" data-netlify="true"
-            onSubmit="submit"
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            onSubmit={handleSubmit}
             className="flex-1 border rounded-2xl flex flex-col gay-y-6 pb-24 p-6 items-start"
           >
             <input type="hidden" name="form-name" value="contact v1" />
