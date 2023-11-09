@@ -1,26 +1,36 @@
-import React from "react";
+
+
+import React, { useState } from "react";
 
 import { motion } from "framer-motion";
 
 import { fadeIn } from "../variants";
 
 const Contact = () => {
-  const handleSubmit = (e) => {
+
+  const [firsLastName, setFirsLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleInputchange = (e) => {
+  const { name, value } = e.target;
+  if (name === "name")
+    setFirsLastName(value);
+  else if (name === "email")
+    setEmail(value);
+  else if (name === "message")
+    setMessage(value);
+  }
+
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
-    fetch("/", {
-      method: "POST",
-      body: new URLSearchParams(new FormData(form)).toString(),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    })
-      .then(() => {
-        // Handle the success or do a redirect here
-        // You can use window.location.href = '/success-page' for example
-      })
-      .catch((error) => {
-        console.error("Form submission error:", error);
-      });
-  };
+    alert(`Thanks for reaching out ${firsLastName}! I will get back to you as soon as possible.`);
+    setFirsLastName("");
+    setEmail("");
+    setMessage("");
+  }
+
+
   return (
     <section className="py-16 lg:section" id="contact">
       <div className="container mx-auto">
@@ -44,27 +54,33 @@ const Contact = () => {
           </motion.div>
           {/* form */}
           <form
+            onSubmit={handleFormSubmit}
             name="contact"
             method="POST"
             data-netlify="true"
-            onSubmit={handleSubmit}
             className="flex-1 border rounded-2xl flex flex-col gay-y-6 pb-24 p-6 items-start"
           >
             <input type="hidden" name="form-name" value="contact v1" />
 
             <input
+              value={firsLastName}
+              onChange={handleInputchange}
               className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
               type="text"
               placeholder="Your name"
               name="name"
             />
             <input
+              value={email}
+              onChange={handleInputchange}
               className="bg-transparent border-b py-3 outline-none w-full placeholder:text-white focus:border-accent transition-all"
               type="email"
               placeholder="Your email"
               name="email"
             />
             <textarea
+              value={message}
+              onChange={handleInputchange}
               className="bg-transparent border-b py-12 outline-none w-full placeholder:text-white focus:border-accent transition-all resize-none mb-12"
               placeholder="Your message"
               name="message"

@@ -77,6 +77,7 @@ const About = () => {
                 <BsBootstrap />
               </motion.div>
             </div>
+            
             <div className="flex pt-3 gap-x-8 items-center">
               <Link to="contact" activeClass="active" smooth={true} spy={true}>
                 <button className="btn btn-lg"> Contact me</button>
@@ -93,3 +94,5 @@ const About = () => {
 };
 
 export default About;
+
+
