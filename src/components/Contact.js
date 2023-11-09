@@ -1,35 +1,44 @@
-
-
 import React, { useState } from "react";
 
 import { motion } from "framer-motion";
 
 import { fadeIn } from "../variants";
 
-const Contact = () => {
+import { validateEmail } from "../utils/checkemail";
 
+const Contact = () => {
   const [firsLastName, setFirsLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
   const handleInputchange = (e) => {
-  const { name, value } = e.target;
-  if (name === "name")
-    setFirsLastName(value);
-  else if (name === "email")
-    setEmail(value);
-  else if (name === "message")
-    setMessage(value);
-  }
+    const { target } = e;
+    const inputType = target.name;
+    const inputValue = target.value;
+
+    if (inputType === "name") {
+      setFirsLastName(inputValue);
+    } else if (inputType === "email") {
+      setEmail(inputValue);
+    } else {
+      setMessage(inputValue);
+    }
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    alert(`Thanks for reaching out ${firsLastName}! I will get back to you as soon as possible.`);
-    setFirsLastName("");
-    setEmail("");
-    setMessage("");
-  }
-
+    if (!validateEmail(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    } else {
+      alert(
+        `Thanks for reaching out ${firsLastName}! I will get back to you as soon as possible.`
+      );
+      setFirsLastName("");
+      setEmail("");
+      setMessage("");
+    }
+  };
 
   return (
     <section className="py-16 lg:section" id="contact">
