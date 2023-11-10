@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+
+import emailjs from "@emailjs/browser";
 
 import { motion } from "framer-motion";
 
@@ -10,6 +12,27 @@ const Contact = () => {
   const [firsLastName, setFirsLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_fexn2yz",
+        "template_z3w9gpd",
+        form.current,
+        "UmGT0sAmDSk-4fGOo"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
 
   const handleInputchange = (e) => {
     const { target } = e;
@@ -38,6 +61,7 @@ const Contact = () => {
       setEmail("");
       setMessage("");
     }
+    sendEmail(e);
   };
 
   return (
@@ -63,6 +87,7 @@ const Contact = () => {
           </motion.div>
           {/* form */}
           <form
+            ref={form}
             onSubmit={handleFormSubmit}
             name="contact"
             method="POST"
